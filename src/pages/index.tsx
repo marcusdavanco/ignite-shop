@@ -7,6 +7,7 @@ import Link from "next/link";
 import Stripe from "stripe";
 import Image from "next/image";
 import "keen-slider/keen-slider.min.css";
+import { Minicart } from "../components/minicart";
 
 interface HomeProps {
   products: {
@@ -30,6 +31,7 @@ export default function Home({ products }: HomeProps) {
       <Head>
         <title>Home | Ignite Shop</title>
       </Head>
+      <Minicart />
       <HomeContainer ref={sliderRef} className="keen-slider">
         {products?.map((product) => (
           <Link
