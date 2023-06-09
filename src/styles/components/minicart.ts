@@ -56,6 +56,30 @@ export const MinicartContainer = styled("div", {
     bottom: "3rem",
     width: "384px",
 
+    table: {
+      width: "384px",
+      borderCollapse: "collapse",
+      marginBottom: "3.5rem",
+
+      "tr + tr": {
+        marginTop: "0.5rem",
+        fontSize: "$xl",
+
+        th: {
+          fontSize: "$md",
+        },
+      },
+
+      th: {
+        textAlign: "left",
+        lineHeight: 1.6,
+      },
+      td: {
+        textAlign: "right",
+        lineHeight: 1.6,
+      },
+    },
+
     button: {
       display: "flex",
       alignItems: "center",
@@ -68,6 +92,12 @@ export const MinicartContainer = styled("div", {
       fontWeight: "bold",
       fontSize: "$md",
       border: "none",
+      cursor: "pointer",
+      transition: "background-color 0.2s",
+
+      "&:not(:disabled):hover": {
+        backgroundColor: "$green300",
+      },
     },
   },
 });
@@ -85,10 +115,12 @@ export const ProductContainer = styled("div", {
     color: "$gray300",
     textDecoration: "none",
     marginBottom: "0.25rem",
+    lineHeight: 1.6,
   },
 
   span: {
-    marginBottom: "0.5rem",
+    marginBottom: "auto",
+    lineHeight: 1.6,
   },
 
   button: {
@@ -98,6 +130,8 @@ export const ProductContainer = styled("div", {
     border: "none",
     fontWeight: "bold",
     width: "fit-content",
+    fontSize: "$sm",
+    lineHeight: 1.6,
 
     "&:hover": {
       color: "$green300",
@@ -106,7 +140,7 @@ export const ProductContainer = styled("div", {
 });
 
 export const ImageContainer = styled("div", {
-  minHeight: "100px",
+  height: "93px",
   minWidth: "100px",
   borderRadius: 8,
   background: "linear-gradient(180deg, #1EA483 0%, #7465D4 100%)",
