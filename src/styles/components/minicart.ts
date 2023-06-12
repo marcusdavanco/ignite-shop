@@ -2,62 +2,63 @@ import { styled } from "..";
 
 export const MinicartContainer = styled("div", {
   backgroundColor: "$gray800",
+  display: "flex",
+  flexDirection: "column",
+  height: "100vh",
   padding: "3rem",
   position: "fixed",
-  height: "100vh",
-  width: "30rem",
   right: 0,
+  width: "30rem",
   zIndex: 2,
 
-  "& > button": {
-    cursor: "pointer",
-    backgroundColor: "transparent",
-    border: "none",
-    position: "absolute",
-    top: "1.75rem",
-    right: "1.75rem",
-  },
-
-  h2: {
-    color: "$gray100",
-    lineHeight: 1.6,
-    fontSize: "$lg",
-    fontWeight: "bold",
-    marginBottom: "2rem",
-  },
-
-  table: {
-    "tr:first-of-type": {
-      "th, td": {
-        color: "$gray100",
-        lineHeight: 1.6,
-        fontSize: "$sm",
-        fontWeight: "normal",
-      },
+  header: {
+    button: {
+      cursor: "pointer",
+      backgroundColor: "transparent",
+      border: "none",
+      position: "absolute",
+      top: "1.75rem",
+      right: "1.75rem",
     },
-    "tr:last-of-type": {
-      "th, td": {
-        color: "$gray100",
-        lineHeight: 1.6,
-        fontSize: "$md",
-        fontWeight: "bold",
-      },
+
+    h2: {
+      color: "$gray100",
+      lineHeight: 1.6,
+      fontSize: "$lg",
+      fontWeight: "bold",
+      marginBottom: "2rem",
     },
   },
 
-  "section:first-of-type": {
+  section: {
     display: "flex",
     flexDirection: "column",
     gap: "1.5rem",
-  },
-
-  "section:last-of-type": {
-    position: "absolute",
-    bottom: "3rem",
-    width: "384px",
+    flex: 1,
 
     table: {
-      width: "384px",
+      "tr:first-of-type": {
+        "th, td": {
+          color: "$gray100",
+          lineHeight: 1.6,
+          fontSize: "$sm",
+          fontWeight: "normal",
+        },
+      },
+      "tr:last-of-type": {
+        "th, td": {
+          color: "$gray100",
+          lineHeight: 1.6,
+          fontSize: "$md",
+          fontWeight: "bold",
+        },
+      },
+    },
+  },
+
+  footer: {
+    table: {
+      width: "100%",
       borderCollapse: "collapse",
       marginBottom: "3.5rem",
 

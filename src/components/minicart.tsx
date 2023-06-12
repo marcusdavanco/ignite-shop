@@ -9,10 +9,12 @@ import { X } from "phosphor-react";
 export function Minicart() {
   return (
     <MinicartContainer>
-      <button>
-        <X size={24} color="#8d8d89" />
-      </button>
-      <h2>Sacola de compras</h2>
+      <header>
+        <button>
+          <X size={24} color="#8d8d89" />
+        </button>
+        <h2>Sacola de compras</h2>
+      </header>
       <section>
         <ProductContainer>
           <ImageContainer></ImageContainer>
@@ -39,7 +41,7 @@ export function Minicart() {
           </div>
         </ProductContainer>
       </section>
-      <section>
+      <footer>
         <table>
           <tbody>
             <tr>
@@ -53,7 +55,7 @@ export function Minicart() {
           </tbody>
         </table>
         <button>Finalizar compra</button>
-      </section>
+      </footer>
     </MinicartContainer>
   );
 }
