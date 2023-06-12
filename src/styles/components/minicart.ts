@@ -99,6 +99,10 @@ export const MinicartContainer = styled("div", {
       "&:not(:disabled):hover": {
         backgroundColor: "$green300",
       },
+
+      "&:disabled": {
+        opacity: 0.6,
+      },
     },
   },
 });
