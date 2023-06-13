@@ -1,6 +1,14 @@
 import { styled } from "..";
+import * as Dialog from "@radix-ui/react-dialog";
 
-export const MinicartContainer = styled("div", {
+export const Overlay = styled(Dialog.Overlay, {
+  position: "fixed",
+  width: "100vw",
+  inset: 0,
+  background: "rgba(0, 0, 0, 0.75)",
+});
+
+export const MinicartContainer = styled(Dialog.Content, {
   backgroundColor: "$gray800",
   display: "flex",
   flexDirection: "column",
@@ -8,19 +16,11 @@ export const MinicartContainer = styled("div", {
   padding: "3rem",
   position: "fixed",
   right: 0,
+  top: 0,
   width: "30rem",
   zIndex: 2,
 
   header: {
-    button: {
-      cursor: "pointer",
-      backgroundColor: "transparent",
-      border: "none",
-      position: "absolute",
-      top: "1.75rem",
-      right: "1.75rem",
-    },
-
     h2: {
       color: "$gray100",
       lineHeight: 1.6,
@@ -105,6 +105,15 @@ export const MinicartContainer = styled("div", {
       },
     },
   },
+});
+
+export const CloseButton = styled(Dialog.Close, {
+  cursor: "pointer",
+  backgroundColor: "transparent",
+  border: "none",
+  position: "absolute",
+  top: "1.75rem",
+  right: "1.75rem",
 });
 
 export const ProductContainer = styled("div", {

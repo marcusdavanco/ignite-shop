@@ -3,12 +3,15 @@ import {
   MinicartContainer,
   ImageContainer,
   ProductContainer,
+  CloseButton,
+  Overlay,
 } from "../styles/components/minicart";
 import { X } from "phosphor-react";
 import { useShoppingCart } from "use-shopping-cart";
 import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
+import * as Dialog from "@radix-ui/react-dialog";
 
 export function Minicart() {
   const { totalPrice, cartCount, cartDetails, removeItem } = useShoppingCart();
@@ -36,65 +39,68 @@ export function Minicart() {
   }
 
   return (
-    <MinicartContainer>
-      <header>
-        <button>
-          <X size={24} color="#8d8d89" />
-        </button>
-        <h2>Sacola de compras</h2>
-      </header>
-      <section>
-        {Object.entries(cartDetails).map(([, product]) => (
-          <ProductContainer key={product.id}>
-            <ImageContainer>
-              <Image
-                src={product.image}
-                width={94}
-                height={94}
-                alt={product.name}
-              />
-            </ImageContainer>
-            <div>
-              <Link href={""}>{product.name}</Link>
-              <span>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(product.price)}
-              </span>
-              <button onClick={() => removeItem(product.id)}>Remover</button>
-            </div>
-          </ProductContainer>
-        ))}
-      </section>
-      <footer>
-        <table>
-          <tbody>
-            <tr>
-              <th>Quantidade</th>
-              <td>
-                {cartCount}{" "}
-                {cartCount === 0 ? "itens" : cartCount > 1 ? "itens" : "item"}
-              </td>
-            </tr>
-            <tr>
-              <th>Valor total</th>
-              <td>
-                {new Intl.NumberFormat("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                }).format(totalPrice)}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          disabled={!cartCount || isCreatingCheckoutSession}
-          onClick={handleClick}
-        >
-          Finalizar compra
-        </button>
-      </footer>
-    </MinicartContainer>
+    <Dialog.Portal>
+      <Overlay />
+      <MinicartContainer>
+        <header>
+          <CloseButton>
+            <X size={24} color="#8d8d89" />
+          </CloseButton>
+          <Dialog.Title>Sacola de compras</Dialog.Title>
+        </header>
+        <section>
+          {Object.entries(cartDetails).map(([, product]) => (
+            <ProductContainer key={product.id}>
+              <ImageContainer>
+                <Image
+                  src={product.image}
+                  width={94}
+                  height={94}
+                  alt={product.name}
+                />
+              </ImageContainer>
+              <div>
+                <Link href={""}>{product.name}</Link>
+                <span>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(product.price)}
+                </span>
+                <button onClick={() => removeItem(product.id)}>Remover</button>
+              </div>
+            </ProductContainer>
+          ))}
+        </section>
+        <footer>
+          <table>
+            <tbody>
+              <tr>
+                <th>Quantidade</th>
+                <td>
+                  {cartCount}{" "}
+                  {cartCount === 0 ? "itens" : cartCount > 1 ? "itens" : "item"}
+                </td>
+              </tr>
+              <tr>
+                <th>Valor total</th>
+                <td>
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(totalPrice)}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button
+            disabled={!cartCount || isCreatingCheckoutSession}
+            onClick={handleClick}
+          >
+            Finalizar compra
+          </button>
+        </footer>
+      </MinicartContainer>
+    </Dialog.Portal>
   );
 }
