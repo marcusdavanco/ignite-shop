@@ -4,7 +4,6 @@ import {
   ImageContainer,
   ProductContainer,
   CloseButton,
-  Overlay,
 } from "../styles/components/minicart";
 import { X } from "phosphor-react";
 import { useShoppingCart } from "use-shopping-cart";
@@ -40,7 +39,6 @@ export function Minicart() {
 
   return (
     <Dialog.Portal>
-      <Overlay />
       <MinicartContainer>
         <header>
           <CloseButton>
@@ -60,7 +58,7 @@ export function Minicart() {
                 />
               </ImageContainer>
               <div>
-                <Link href={""}>{product.name}</Link>
+                <Link href={`/product/${product.id}`}>{product.name}</Link>
                 <span>
                   {new Intl.NumberFormat("pt-BR", {
                     style: "currency",
