@@ -7,8 +7,6 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { stripe } from "../../lib/stripe";
 import Stripe from "stripe";
 import Image from "next/image";
-import axios from "axios";
-import { useState } from "react";
 import Head from "next/head";
 import { useShoppingCart } from "use-shopping-cart";
 

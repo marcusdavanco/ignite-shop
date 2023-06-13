@@ -25,5 +25,6 @@ export const CartButtonContainer = styled(Dialog.Trigger, {
     fontWeight: "bold",
     top: "-7px",
     right: "-7px",
+    zIndex: "2",
   },
 });

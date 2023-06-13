@@ -34,9 +34,30 @@ export const SuccessContainer = styled("div", {
       color: "$green300",
     },
   },
+
+  "section.multiple": {
+    display: "flex",
+
+    div: {
+      height: "100%",
+      width: "100%",
+      maxWidth: 140,
+      maxHeight: 140,
+      borderRadius: "50%",
+      boxShadow: "0px 0px 60px rgba(0, 0, 0, 0.8)",
+    },
+
+    "div + div": {
+      marginLeft: "-3rem",
+    },
+
+    "& + h1": {
+      marginTop: "3rem",
+    },
+  },
 });
 
-export const ImageContainer = styled("main", {
+export const ImageContainer = styled("div", {
   width: "100%",
   maxWidth: 130,
   height: 145,
