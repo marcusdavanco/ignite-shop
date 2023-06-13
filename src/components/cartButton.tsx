@@ -7,7 +7,7 @@ export function CartButton() {
 
   return (
     <CartButtonContainer>
-      {cartCount && <span>{cartCount}</span>}
+      {cartCount > 0 && <span>{cartCount}</span>}
       <Handbag size={24} color={"#c4c4cc"} />
     </CartButtonContainer>
   );
