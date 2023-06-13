@@ -5,6 +5,8 @@ import { stripe } from "../lib/stripe";
 import Stripe from "stripe";
 import Image from "next/image";
 import Head from "next/head";
+import { useShoppingCart } from "use-shopping-cart";
+import { useEffect } from "react";
 
 interface SuccessProps {
   customerName: string;
@@ -15,6 +17,12 @@ interface SuccessProps {
 }
 
 export default function Success({ customerName, products }: SuccessProps) {
+  const { clearCart } = useShoppingCart();
+
+  useEffect(() => {
+    return () => clearCart();
+  }, []);
+
   return (
     <>
       <Head>
