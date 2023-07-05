@@ -30,6 +30,7 @@
 
 - Server Side Generation
 - Static Generation
+- Stripe Integration
 
 
 ## 🚀 Technologies
