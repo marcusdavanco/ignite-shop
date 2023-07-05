@@ -1,5 +1,5 @@
 
-<h1 align="center"> GitHub Blog  </h1>
+<h1 align="center"> Ignite Shop  </h1>
 
 <p align="center">
 	The "ignite-shop" study project is a Next.js-based web application for online shopping featuring stripe integration and various dependencies such as axios, stitches, keen-slider, and use-shopping-cart.
